@@ -1,0 +1,13 @@
+62217ba2f5f850677167552b715b1470 *DESCRIPTION
+df390c53434517b304ac5db487184641 *NAMESPACE
+6f9c83031563ce0b3812a6af2f4238d7 *R/AdapEnetClass.R
+91f62cf9a8ca5c4b2ea9f3c26c97a788 *man/AEnet.aft.Rd
+0f2a0d1456a475b8a98acbaad94329dc *man/AEnetCC.aft.Rd
+1dd0ab84075b840ab2a41432285b890d *man/AdapEnetClass-package.Rd
+54888cb3e70348730b06512f49216646 *man/Enet.wls.Rd
+68dc3e37fe706fcd992e2eb51bbb187b *man/WEnet.aft.Rd
+7f60f5f2b328d4c1213790224493600e *man/WEnetCC.aft.Rd
+5d32b6a5f09cd973dfb9bf958d390f9e *man/cv.AWEnet.Rd
+2f7062cafd8783d294349c2dbe2ecdd7 *man/cv.AWEnetCC.Rd
+f309adc144f247e08821092ec83b1d7a *man/mrbj.Rd
+148dfcc50b6dbd1b90d886131c7b4461 *man/plotObsEst.Rd
