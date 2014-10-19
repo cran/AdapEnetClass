@@ -18,8 +18,7 @@ legendplot = TRUE, legendpos = "topleft", maxvalue = NULL, minvalue = NULL)}
 }
 \value{This provides a scatter plot of the survival times.}
 \references{
-Khan and Shaw (2013). Variable Selection for Survival Data with A Class of Adaptive Elastic Net Techniques. CRiSM working paper, Department of Statistics, University of Warwick, UK.
-}
+Khan and Shaw (2013). Variable Selection for Survival Data with a Class of Adaptive Elastic Net Techniques. CRiSM working paper, Department of Statistics, University of Warwick, UK, No. 13-17. Also available in \url{http://arxiv.org/abs/1312.2079}.}
 
 \examples{
 #For a hypothetical data

@@ -10,7 +10,7 @@ cv.AWEnetCC(X, Y, delta, weight, kFold = 10, C, s, lambda2, AEnetCC = T)
   \item{Y}{typically the logarithmic of the survival time under AFT models. Otherwise survival time.}
   \item{delta}{status. it includes value 1 for uncensored and value 0 for censored subject.}
   \item{weight}{vector of observation weights. Weight is based on initial estimator that is obtained from elastic net on the weighted data (see Enet.wls function) or from Gehan estimator (see mrbj function).}
-  \item{kFold}{Number of folds.}
+  \item{kFold}{number of folds.}
   \item{C}{this is a positive value that accounts for the penalties of violations of constraints. C is typically allowed to take values in a grid such as (0, 0.5, 1, 1.5, ..., 10).}
   \item{s}{this is the optimal equivalent specification for lasso in terms of fraction of the L1 norm. This is obtained from the AEnet.aft function}.
   \item{lambda2}{regularization parameter for the L2 norm of the coefficients. This is typically assumed to take values in a relatively small grid.}
@@ -24,12 +24,17 @@ cv.AWEnetCC(X, Y, delta, weight, kFold = 10, C, s, lambda2, AEnetCC = T)
   \item{cvscore}{a CV score based on the CV error. This is basically the sum of squared residuals of uncensored data multiplied by the Kaplan-Meier weights (Khan and Shaw, 2013).} 
 }
 \references{
-Khan and Shaw (2013). Variable Selection for Survival Data with A Class of Adaptive Elastic Net Techniques. CRiSM working paper, Department of Statistics, University of Warwick, UK.
+Khan and Shaw (2012) imputeYn: Imputing the last largest censored
+observation/observations under weighted least squares. R package version
+1.1, \url{http://cran.r-project.org/web/
+packages/imputeYn/index.html}.
+
+Khan and Shaw (2013). Variable Selection for Survival Data with a Class of Adaptive Elastic Net Techniques. CRiSM working paper, Department of Statistics, University of Warwick, UK, No. 13-17. Also available in \url{http://arxiv.org/abs/1312.2079}.
 }
 \seealso{cv.AWEnet}
 
 \examples{
-#For full data typically used for AFT models (using imputeYn package)
+#For full data typically used for AFT models (using imputeYn (2012) package)
 dat<-data(n=100, p=10, r=0, b1=c(rep(5,5),rep(0,5)), sig=1, Cper=0)
 
 #This needs to run for generating weights of the observations

@@ -1,1 +1,3 @@
 exportPattern("^[[:alpha:]]+")
+import(imputeYn, glmnet,lars)
+importFrom(quadprog, solve.QP.compact)

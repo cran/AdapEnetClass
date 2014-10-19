@@ -19,7 +19,7 @@ as Surv object.}
   \item{cov}{takes logical values T or F. If cov=T, the covariance matrices of the Gehen estimator will be printed. The default is cov=F.}
   \item{na.action}{takes values na.exclude or na.fail. The default is na.exclude, which deletes the observations with missing values. The other choice is na.fail, which returns an
 error if any missing values are found.}
- \item{residue}{Default is FALSE.}
+ \item{residue}{default is FALSE.}
  \item{mcsize}{specifies the resampling number. The default is 500.}
 }
 
@@ -28,16 +28,21 @@ error if any missing values are found.}
 \references{
 Jin, Z., Lin, D. Y. and Ying, Z. (2006). On least-squares regression with censored data. Biometrika, 93, 147-161.
 
-Khan and Shaw (2013b). Variable Selection with The Modified Buckley-James Method and The Dantzig Selector for High-dimensional Survival Data. Conference Proceeding, 59th World Statistics Congress, Hong Kong, China
+Khan and Shaw (2012) imputeYn: Imputing the last largest censored
+observation/observations under weighted least squares. R package version
+1.1, \url{http://cran.r-project.org/web/
+packages/imputeYn/index.html}.
+
+Khan and Shaw (2013b). Variable Selection with The Modified Buckley-James Method and The Dantzig Selector for High-dimensional Survival Data. Proceedings 59th ISI World Statistics Congress, 25-30 August 2013, Hong Kong, p. 4239-4244.
 
 }
 \author{Hasinur Rahaman Khan and Ewart Shaw}
 
 
-\seealso{lss package}
+\seealso{\pkg{lss} package}
 
 \examples{
-#For full data typically used for AFT models (using imputeYn package)
+#For full data typically used for AFT models (using imputeYn (2012) package)
 dat<-data(n=100, p=10, r=0, b1=c(rep(5,5),rep(0,5)), sig=1, Cper=0)
 
 #mrbj: modified resampling based Buckley-James method. 

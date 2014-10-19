@@ -12,30 +12,35 @@ to = 1, length = 100), plot.it = F, se = TRUE, AEnet = T, all.folds = NULL)}
   \item{weight}{vector of observation weights. Weight is based on initial estimator that is obtained from elastic net on the weighted data (see Enet.wls function) or from Gehan estimator (see mrbj function).}
   \item{lambda2}{regularization parameter for the L2 norm of the coefficients. This is typically assumed to take values in a relatively small grid.}
   \item{maxit}{an optional bound for the number of steps to be taken. Default is 10.}
-  \item{K}{Number of folds.}
-  \item{fraction}{Abscissa values at which CV curve should be computed. This is the fraction of the saturated |beta|. The default value is seq(from = 0, to = 1, length =100).}
-  \item{plot.it}{If T then plot will be showed. Default is T.}
-  \item{se}{Include standard error bands.}
-  \item{AEnet}{If T then the results are based on adaptive elastic net otherwise based on weighted elastic net.}
-   \item{all.folds}{NULL.}
+  \item{K}{number of folds.}
+  \item{fraction}{abscissa values at which CV curve should be computed. This is the fraction of the saturated |beta|. The default value is seq(from = 0, to = 1, length =100).}
+  \item{plot.it}{if T then plot will be showed. Default is T.}
+  \item{se}{include standard error bands.}
+  \item{AEnet}{if T then the results are based on adaptive elastic net otherwise based on weighted elastic net.}
+   \item{all.folds}{null.}
 }
 
 \value{An "index" object is returned with a CV curve. The index includes
-\item{lambda2}{as above}
-\item{cv}{The CV curve at each value of index}
-\item{cv.mse}{The mean square error of the CV curve}
-\item{cv.error}{The standard error of the CV curve}
+\item{lambda2}{as AEnetCC.aft}
+\item{cv}{the CV curve at each value of index}
+\item{cv.mse}{the mean square error of the CV curve}
+\item{cv.error}{the standard error of the CV curve}
 
 }
 
 \references{
-Khan and Shaw (2013). Variable Selection for Survival Data with A Class of Adaptive Elastic Net Techniques. CRiSM working paper, Department of Statistics, University of Warwick, UK.
+Khan and Shaw (2012) imputeYn: Imputing the last largest censored
+observation/observations under weighted least squares. R package version
+1.1, \url{http://cran.r-project.org/web/
+packages/imputeYn/index.html}.
+
+Khan and Shaw (2013). Variable Selection for Survival Data with a Class of Adaptive Elastic Net Techniques. CRiSM working paper, Department of Statistics, University of Warwick, UK, No. 13-17. Also available in \url{http://arxiv.org/abs/1312.2079}.
 }
 \author{Hasinur Rahaman Khan and Ewart Shaw}
 
 \seealso{cv.AWEnetCC}
 \examples{
-#For full data typically used for AFT models (using imputeYn package).
+#For full data typically used for AFT models (using imputeYn (2012) package).
 dat<-data(n=100, p=10, r=0, b1=c(rep(5,5),rep(0,5)), sig=1, Cper=0)
 
 #This needs to run for generating weights of the observations

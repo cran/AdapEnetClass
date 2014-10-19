@@ -25,13 +25,18 @@ Ghosh, S. (2007). Adaptive Elastic Net: An Improvement of Elastic Net
 to achieve Oracle Properties. Technical Reports, Indiana University-
 Purdue University, Indianapolis, USA. PR no. 07-01.
 
-Khan and Shaw (2013). Variable Selection for Survival Data with A Class of Adaptive Elastic Net Techniques. CRiSM working paper, Department of Statistics, University of Warwick, UK.
+Khan and Shaw (2012) imputeYn: Imputing the last largest censored
+observation/observations under weighted least squares. R package version
+1.1, \url{http://cran.r-project.org/web/
+packages/imputeYn/index.html}.
+
+Khan and Shaw (2013). Variable Selection for Survival Data with a Class of Adaptive Elastic Net Techniques. CRiSM working paper, Department of Statistics, University of Warwick, UK, No. 13-17. Also available in \url{http://arxiv.org/abs/1312.2079}.
 }
 \author{Hasinur Rahaman Khan and Ewart Shaw}
 
 \seealso{cv.AWEnet}
 \examples{
-#For full data typically used for AFT models (using imputeYn package).
+#For full data typically used for AFT models (using imputeYn (2012) package).
 dat<-data(n=100, p=10, r=0, b1=c(rep(5,5),rep(0,5)), sig=1, Cper=0)
 
 #This needs to run for generating weights of the observations
