@@ -1,3 +1,6 @@
 exportPattern("^[[:alpha:]]+")
 import(imputeYn, glmnet,lars)
 importFrom(quadprog, solve.QP.compact)
+importFrom("graphics", "abline", "legend", "plot", "points")
+importFrom("stats", "model.extract", "model.matrix", "na.exclude",
+             "pnorm", "predict", "rexp", "var")

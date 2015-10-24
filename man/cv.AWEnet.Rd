@@ -1,7 +1,7 @@
 \name{cv.AWEnet}
 \alias{cv.AWEnet}
 \title{Computes K-fold cross validated error curve for AEnet and WEnet}
-\description{This function computes the K-fold cross validation, cross validation error, cross validation mean squared error.}
+\description{This function computes the K-fold cross validation estimates.}
 \usage{
 cv.AWEnet(X, Y, delta, weight, lambda2, maxit, K = 10, fraction = seq(from = 0, 
 to = 1, length = 100), plot.it = F, se = TRUE, AEnet = T, all.folds = NULL)}
@@ -19,6 +19,7 @@ to = 1, length = 100), plot.it = F, se = TRUE, AEnet = T, all.folds = NULL)}
   \item{AEnet}{if T then the results are based on adaptive elastic net otherwise based on weighted elastic net.}
    \item{all.folds}{null.}
 }
+\details{This function computes the K-fold cross validation, cross validation error, cross validation mean squared error.}
 
 \value{An "index" object is returned with a CV curve. The index includes
 \item{lambda2}{as AEnetCC.aft}
@@ -29,18 +30,17 @@ to = 1, length = 100), plot.it = F, se = TRUE, AEnet = T, all.folds = NULL)}
 }
 
 \references{
-Khan and Shaw (2012) imputeYn: Imputing the last largest censored
+Khan and Shaw (2015) imputeYn: Imputing the last largest censored
 observation/observations under weighted least squares. R package version
-1.1, \url{http://cran.r-project.org/web/
-packages/imputeYn/index.html}.
+1.3, \url{https://cran.r-project.org/package=imputeYn}.
 
-Khan and Shaw (2013). Variable Selection for Survival Data with a Class of Adaptive Elastic Net Techniques. CRiSM working paper, Department of Statistics, University of Warwick, UK, No. 13-17. Also available in \url{http://arxiv.org/abs/1312.2079}.
+Khan and Shaw (2015). Variable Selection for Survival Data with a Class of Adaptive Elastic Net Techniques. Statistics and Computing (published online; DOI: 10.1007/s11222-015-9555-8). Also available in \url{http://arxiv.org/abs/1312.2079}.
 }
 \author{Hasinur Rahaman Khan and Ewart Shaw}
 
 \seealso{cv.AWEnetCC}
 \examples{
-#For full data typically used for AFT models (using imputeYn (2012) package).
+#For full data typically used for AFT models (using imputeYn (2015) package).
 dat<-data(n=100, p=10, r=0, b1=c(rep(5,5),rep(0,5)), sig=1, Cper=0)
 
 #This needs to run for generating weights of the observations
@@ -48,16 +48,16 @@ l<-mrbj(cbind(dat$y, dat$delta) ~ dat$x, mcsize=100, trace=FALSE, gehanonly=FALS
 
 #cv.AWEnet: Cross validation of Adaptive elastic net
 wt<-l$enet
-\donttest{cv1 <-cv.AWEnet(dat$x, dat$y, dat$delta, weight=wt, lambda2=0.001, maxit=10,
+\dontrun{cv1 <-cv.AWEnet(dat$x, dat$y, dat$delta, weight=wt, lambda2=0.001, maxit=10,
 plot.it = T, AEnet=T)}
-\donttest{cv1$index[which.min(cv1$cv)]}
+\dontrun{cv1$index[which.min(cv1$cv)]}
 
 #cv.AWEnet: Cross validation of weighted elastic net
-\donttest{l<-mrbj(cbind(dat$y, dat$delta) ~ dat$x, mcsize=100, trace=FALSE, gehanonly=TRUE)}
-\donttest{wt<-l$gehansd}
-\donttest{cv2 <-cv.AWEnet(dat$x, dat$y, dat$delta, weight=wt, lambda2=0.001, 
+\dontrun{l<-mrbj(cbind(dat$y, dat$delta) ~ dat$x, mcsize=100, trace=FALSE, gehanonly=TRUE)}
+\dontrun{wt<-l$gehansd}
+\dontrun{cv2 <-cv.AWEnet(dat$x, dat$y, dat$delta, weight=wt, lambda2=0.001, 
 maxit=10, plot.it = T, AEnet=F)}
-\donttest{cv2$index[which.min(cv2$cv)]}
+\dontrun{cv2$index[which.min(cv2$cv)]}
 }
 \keyword{CV}
 \keyword{AEnet}

@@ -1,7 +1,7 @@
 \name{plotObsEst}
 \alias{plotObsEst}
 \title{Pairwise scatter plots of the survival times}
-\description{This function generates pairwise scatter plots of the observed and predicted survival times.}
+\description{This function generates pairwise scatter plots.}
 \usage{plotObsEst(yObs, yEst, delta, xlab = NULL, ylab = NULL, title = NULL, 
 legendplot = TRUE, legendpos = "topleft", maxvalue = NULL, minvalue = NULL)}
 \arguments{
@@ -16,9 +16,13 @@ legendplot = TRUE, legendpos = "topleft", maxvalue = NULL, minvalue = NULL)}
   \item{maxvalue}{maximum value of the yObs and yEst. Default is Null.}
   \item{minvalue}{minimum value of the yObs and yEst. Default is Null.}
 }
+
+\details{This function generates pairwise scatter plots of the observed and predicted survival times.}
+
 \value{This provides a scatter plot of the survival times.}
 \references{
-Khan and Shaw (2013). Variable Selection for Survival Data with a Class of Adaptive Elastic Net Techniques. CRiSM working paper, Department of Statistics, University of Warwick, UK, No. 13-17. Also available in \url{http://arxiv.org/abs/1312.2079}.}
+Khan and Shaw (2015). Variable Selection for Survival Data with a Class of Adaptive Elastic Net Techniques. Statistics and Computing (published online; DOI: 10.1007/s11222-015-9555-8). Also available in \url{http://arxiv.org/abs/1312.2079}.
+}
 
 \examples{
 #For a hypothetical data
@@ -27,8 +31,8 @@ delta<-c(1,0,0,1,0,1)
 yEst<-c(11,30,24,30,6,13)
 
 #plotObsEst: scatter plotting of the pairwise survival times 
-\donttest{plot<-plotObsEst(y, yEst, delta, xlab = NULL, ylab = NULL, 
-title = Predicted versus Observed Survival times, legendplot = TRUE,
-legendpos = "topleft", maxvalue = NULL, minvalue = NULL)}
+\donttest{plot<-plotObsEst(y, yEst, delta, xlab = NULL, ylab = NULL, title = "Predicted 
+versus Observed Survival times", legendplot = TRUE, legendpos = "topleft", 
+maxvalue = NULL, minvalue = NULL)}
 }
 

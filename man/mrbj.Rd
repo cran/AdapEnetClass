@@ -1,7 +1,7 @@
 \name{mrbj}
 \alias{mrbj}
 \title{Modified resampling based Buckley-James method}
-\description{This function is based on an alternative method to the Buckley-James method based on the accelerated failure time models as discussed in Jin et al.(2006) that provides an approximating approach for the consistent root of the estimating equation since the general Buckley-James method does not guarantee the convergence of its iterative process (Khan and Shaw, 2013b).}
+\description{This function provides estimates for AFT models by using iterative process.}
 \usage{
 mrbj(formula, data, subset, trace = FALSE, gehanonly = FALSE, cov = FALSE, 
 na.action = na.exclude, residue = FALSE, mcsize = 100)
@@ -23,17 +23,19 @@ error if any missing values are found.}
  \item{mcsize}{specifies the resampling number. The default is 500.}
 }
 
-\details{Modified resampling based Buckley James method is an extension of the work proposed by Jin et al. (2006). Here, if n (observations)>p (number of covariates under AFT models) then Gehan estimator is used an an initial estimator in the Buckley-James iterative process to produce consistent estimator. For n<p, the elastic net on the weighted data is used and bootsrap is used to generate standard error of the estimates.}
+\details{
+This function is based on an alternative method to the Buckley-James method based on the accelerated failure time models as discussed in Jin et al.(2006) that provides an approximating approach for the consistent root of the estimating equation since the general Buckley-James method does not guarantee the convergence of its iterative process (Khan and Shaw, 2013).
+
+Modified resampling based Buckley James method is an extension of the work proposed by Jin et al. (2006). Here, if n (observations)>p (number of covariates under AFT models) then Gehan estimator is used an an initial estimator in the Buckley-James iterative process to produce consistent estimator. For n<p, the elastic net on the weighted data is used and bootsrap is used to generate standard error of the estimates.}
 \value{The Gehan estimator, the standard error of the Gehan estimator, the Z score and the p-value for testing the hypothesis of beta=0 based on Gehan estimation. The elastic net estimator, the standard error of the elastic net estimator, The covariance matrices of the Gehan estimator, when cov is set to be T.}
 \references{
 Jin, Z., Lin, D. Y. and Ying, Z. (2006). On least-squares regression with censored data. Biometrika, 93, 147-161.
 
-Khan and Shaw (2012) imputeYn: Imputing the last largest censored
+Khan and Shaw (2015) imputeYn: Imputing the last largest censored
 observation/observations under weighted least squares. R package version
-1.1, \url{http://cran.r-project.org/web/
-packages/imputeYn/index.html}.
+1.3, \url{https://cran.r-project.org/package=imputeYn}.
 
-Khan and Shaw (2013b). Variable Selection with The Modified Buckley-James Method and The Dantzig Selector for High-dimensional Survival Data. Proceedings 59th ISI World Statistics Congress, 25-30 August 2013, Hong Kong, p. 4239-4244.
+Khan and Shaw (2013). Variable Selection with The Modified Buckley-James Method and The Dantzig Selector for High-dimensional Survival Data. Proceedings 59th ISI World Statistics Congress, 25-30 August 2013, Hong Kong, p. 4239-4244.
 
 }
 \author{Hasinur Rahaman Khan and Ewart Shaw}
@@ -42,13 +44,13 @@ Khan and Shaw (2013b). Variable Selection with The Modified Buckley-James Method
 \seealso{\pkg{lss} package}
 
 \examples{
-#For full data typically used for AFT models (using imputeYn (2012) package)
+#For full data typically used for AFT models (using imputeYn (2015) package)
 dat<-data(n=100, p=10, r=0, b1=c(rep(5,5),rep(0,5)), sig=1, Cper=0)
 
 #mrbj: modified resampling based Buckley-James method. 
 #When gehanonly=T, it give both the Gehan and the elastic net  estimates 
-\donttest{fit1<-mrbj(cbind(dat$y, dat$delta) ~ dat$x, mcsize=100, trace=FALSE, gehanonly=TRUE)}
-\donttest{fit1}
+\dontrun{fit1<-mrbj(cbind(dat$y, dat$delta) ~ dat$x, mcsize=100, trace=FALSE, gehanonly=TRUE)}
+\dontrun{fit1}
 
 #mrbj: modified resampling based Buckley-James method. 
 #Only for Gehan estimates

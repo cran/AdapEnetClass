@@ -1,7 +1,7 @@
 \name{AEnetCC.aft}
 \alias{AEnetCC.aft}
-\title{Adaptive elastic net with censoring constraints for censored data based on AFT models}
-\description{This function is used to fit AFT models using adaptive elastic net with censorig constraints (Khan and Shaw, 2013). This is an extension of the adaptive elastic approach that allows the censoring constraints to be implemented into the optimization framework. The method works for both cases of datasets high-dimensional where the number of variables (p) is greater than the number of subjects (n) and low-dimensional.}
+\title{Adaptive elastic net for AFT models with censoring constraints}
+\description{This function is used to fit AFT models by using adaptive elastic net.}
 \usage{AEnetCC.aft(X, Y, delta, weight, C = 1, s = 1, lambda2)}
 \arguments{
   \item{X}{covariate matrix under study, particularly for AFT modelling. The order of matrix covariate is typically n by p.}
@@ -13,7 +13,10 @@
   \item{lambda2}{regularization parameter for the L2 norm of the coefficients. This is typically assumed to take values in a relatively small grid, say (0, 0.5, 1.0, 1.5, 2.0, ..., 5).}
 }
 
-\details{This method use the same optimal pair of (lambda1, lambda2) as found in AEnet.aft. Then C is typically allowed to take values in a grid such as (0, 0.5, 1.0, 1.5, 2.0,...,5), and the optimal value for C obtained by 5-fold cross-validation. Here C typically depends upon how stringently one wants the model to satisfy the censoring constraints compared to how good is the prediction for uncensored data.}
+\details{
+This function is used to fit AFT models using adaptive elastic net with censorig constraints (Khan and Shaw, 2015). This is an extension of the adaptive elastic approach that allows the censoring constraints to be implemented into the optimization framework. The method works for both cases of datasets high-dimensional where the number of variables (p) is greater than the number of subjects (n) and low-dimensional.
+
+This method use the same optimal pair of (lambda1, lambda2) as found in AEnet.aft. Then C is typically allowed to take values in a grid such as (0, 0.5, 1.0, 1.5, 2.0,...,5), and the optimal value for C obtained by 5-fold cross-validation. Here C typically depends upon how stringently one wants the model to satisfy the censoring constraints compared to how good is the prediction for uncensored data.}
 
 \value{An object of type numeric is returned that provides the coefficient estimates.}
 \references{
@@ -21,18 +24,17 @@ Ghosh, S. (2007). Adaptive Elastic Net: An Improvement of Elastic Net
 to achieve Oracle Properties. Technical Reports, Indiana University-
 Purdue University, Indianapolis, USA. PR no. 07-01.
 
-Khan and Shaw (2012) imputeYn: Imputing the last largest censored
+Khan and Shaw (2015) imputeYn: Imputing the last largest censored
 observation/observations under weighted least squares. R package version
-1.1, \url{http://cran.r-project.org/web/
-packages/imputeYn/index.html}.
+1.3, \url{https://cran.r-project.org/package=imputeYn}.
 
-Khan and Shaw (2013). Variable Selection for Survival Data with a Class of Adaptive Elastic Net Techniques. CRiSM working paper, Department of Statistics, University of Warwick, UK, No. 13-17. Also available in \url{http://arxiv.org/abs/1312.2079}.
+Khan and Shaw (2015). Variable Selection for Survival Data with a Class of Adaptive Elastic Net Techniques. Statistics and Computing (published online; DOI: 10.1007/s11222-015-9555-8). Also available in \url{http://arxiv.org/abs/1312.2079}.
 }
 \author{Hasinur Rahaman Khan and Ewart Shaw}
 
 \seealso{cv.AWEnetCC}
 \examples{
-#For full data typically used for AFT models (using imputeYn (2012) package).
+#For full data typically used for AFT models (using imputeYn (2015) package).
 dat<-data(n=100, p=10, r=0, b1=c(rep(5,5), rep(0, 5)), sig=1, Cper=0)
 
 #This needs to run for generating weights of the observations
